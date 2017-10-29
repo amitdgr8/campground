@@ -6,7 +6,12 @@ var middleware = require("../middleware");
 router.get("/campgrounds", function(req, res){
     // res.render("campgrounds", {campgrounds: campgrounds} );
     Campground.find({},function(err, allcampgrounds){
-    if(err){console.log(err);}else{res.render("index",{campgrounds:allcampgrounds})}
+    if(err){
+        console.log(err);
+    }else
+        {
+            res.render("index",{campgrounds:allcampgrounds});
+        }
 });
 });
 router.post("/campgrounds",middleware.isLoggedIn, function(req, res){
